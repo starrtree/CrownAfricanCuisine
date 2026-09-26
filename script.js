@@ -225,15 +225,6 @@ if (!reduceMotion && window.gsap && window.ScrollTrigger) {
     ease: 'power3.out',
     delay: 0.28
   });
-  gsap.to('.hero-food-wings', {
-    yPercent: -30, rotate: 5, scale: 1.08, ease: 'none',
-    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 }
-  });
-  gsap.to('.hero-food-african', {
-    yPercent: 48, rotate: -7, scale: 0.92, ease: 'none',
-    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1.15 }
-  });
-
   gsap.to('.hero-bg img', {
     scale: 1,
     yPercent: 7,
