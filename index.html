@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="cutouts.css" />
 </head>
 <body>
   <div class="grain" aria-hidden="true"></div>
@@ -37,6 +38,11 @@
       </div>
       <div class="hero-vignette" aria-hidden="true"></div>
       <div class="hero-pattern" aria-hidden="true"></div>
+
+      <div class="hero-food-layer" aria-hidden="true">
+        <img class="hero-cutout hero-cutout-wings" src="assets/chicken_wings.PNG" alt="" />
+        <img class="hero-cutout hero-cutout-african" src="assets/african-cuisine-cutout.PNG" alt="" />
+      </div>
 
       <div class="hero-copy">
         <p class="eyebrow">Cincinnati · Waycross Road</p>
@@ -94,6 +100,26 @@
           <h2>Dibi.<br>Maffe.<br>Fufu.</h2>
           <p>West African favorites, grilled plates and rice dishes made to bring something different to the neighborhood table.</p>
         </div>
+      </div>
+    </section>
+
+    <section class="flavor-flight" id="flavorFlight" aria-label="Scroll controlled Crown's food showcase">
+      <div class="flavor-flight-sticky">
+        <div class="flight-grid" aria-hidden="true"></div>
+        <div class="flight-copy">
+          <p class="eyebrow">Scroll-controlled showcase</p>
+          <h2>FLAVOR<br><em>IN MOTION.</em></h2>
+          <p>One kitchen. Two cravings. Everything moves under the crown.</p>
+        </div>
+        <div class="flight-orbits" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+        <img class="flight-logo" src="assets/crowns-pizza-and-wings_MAIN_logo.PNG" alt="" aria-hidden="true" />
+        <img class="flight-cutout flight-wings" src="assets/chicken_wings.PNG" alt="" aria-hidden="true" />
+        <img class="flight-cutout flight-african" src="assets/african-cuisine-cutout.PNG" alt="" aria-hidden="true" />
+        <div class="flight-label label-wings">WINGS / COMFORT</div>
+        <div class="flight-label label-african">AFRICAN / HERITAGE</div>
+        <div class="flight-scroll-note">KEEP SCROLLING ↓</div>
       </div>
     </section>
 
@@ -218,5 +244,6 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js"></script>
   <script src="script.js"></script>
+  <script src="cutouts.js"></script>
 </body>
 </html>
