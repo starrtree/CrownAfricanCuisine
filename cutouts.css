@@ -1,0 +1,220 @@
+/* Crown's transparent cutout choreography
+   Kept modular so the future scroll-scrubbed video can replace the center stage
+   without disturbing the rest of the site. */
+
+.hero-food-layer{
+  position:absolute;
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+  overflow:hidden;
+}
+.hero-cutout{
+  position:absolute;
+  width:auto;
+  height:auto;
+  object-fit:contain;
+  will-change:transform,opacity;
+  filter:drop-shadow(0 30px 42px rgba(0,0,0,.42));
+  user-select:none;
+}
+.hero-cutout-wings{
+  right:-6vw;
+  bottom:-5vh;
+  width:clamp(330px,42vw,690px);
+  transform:rotate(-8deg);
+  opacity:.96;
+}
+.hero-cutout-african{
+  right:24vw;
+  top:13vh;
+  width:clamp(180px,22vw,360px);
+  transform:rotate(8deg);
+  opacity:.72;
+  filter:drop-shadow(0 26px 36px rgba(0,0,0,.38));
+}
+.hero-copy,.hero-seal,.hero-meta{z-index:4}
+
+/* Dedicated pinned scroll scene */
+.flavor-flight{
+  position:relative;
+  height:290vh;
+  background:#0a0705;
+  color:#fff;
+}
+.flavor-flight-sticky{
+  position:sticky;
+  top:0;
+  height:100svh;
+  min-height:640px;
+  overflow:hidden;
+  isolation:isolate;
+  background:
+    radial-gradient(circle at 52% 48%,rgba(220,158,47,.18),transparent 26%),
+    radial-gradient(circle at 18% 75%,rgba(157,53,31,.16),transparent 28%),
+    linear-gradient(135deg,#070503,#171008 52%,#090603);
+}
+.flight-grid{
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  opacity:.11;
+  background-image:
+    linear-gradient(rgba(255,255,255,.14) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.14) 1px,transparent 1px);
+  background-size:68px 68px;
+  mask-image:radial-gradient(circle at center,#000 8%,transparent 76%);
+}
+.flight-copy{
+  position:absolute;
+  z-index:6;
+  left:var(--pad);
+  top:50%;
+  transform:translateY(-50%);
+  width:min(560px,42vw);
+  pointer-events:none;
+}
+.flight-copy h2{
+  margin:0;
+  font:700 clamp(66px,8.5vw,136px)/.77 var(--serif);
+  letter-spacing:-.06em;
+  text-transform:uppercase;
+}
+.flight-copy h2 em{
+  display:block;
+  color:var(--gold-2);
+  font-weight:600;
+}
+.flight-copy>p:last-child{
+  max-width:420px;
+  margin-top:26px;
+  color:rgba(255,255,255,.62);
+  line-height:1.55;
+  font-size:clamp(14px,1.25vw,18px);
+}
+.flight-logo{
+  position:absolute;
+  z-index:3;
+  left:58%;
+  top:50%;
+  width:clamp(180px,23vw,370px);
+  aspect-ratio:1;
+  object-fit:contain;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  background:#fff;
+  box-shadow:0 38px 110px rgba(0,0,0,.54),0 0 0 1px rgba(255,255,255,.12);
+  will-change:transform,opacity;
+}
+.flight-cutout{
+  position:absolute;
+  z-index:4;
+  width:auto;
+  height:auto;
+  object-fit:contain;
+  pointer-events:none;
+  user-select:none;
+  will-change:transform,opacity;
+  filter:drop-shadow(0 40px 55px rgba(0,0,0,.48));
+}
+.flight-wings{
+  width:clamp(360px,44vw,720px);
+  right:-11vw;
+  bottom:-13vh;
+  transform:rotate(-12deg);
+}
+.flight-african{
+  width:clamp(260px,31vw,500px);
+  right:9vw;
+  top:-7vh;
+  transform:rotate(10deg);
+}
+.flight-orbits{
+  position:absolute;
+  z-index:1;
+  left:58%;
+  top:50%;
+  width:min(64vw,860px);
+  aspect-ratio:1;
+  transform:translate(-50%,-50%);
+  pointer-events:none;
+}
+.flight-orbits span{
+  position:absolute;
+  inset:0;
+  border:1px solid rgba(239,196,92,.18);
+  border-radius:50%;
+}
+.flight-orbits span:nth-child(2){inset:13%;border-style:dashed;opacity:.68}
+.flight-orbits span:nth-child(3){inset:28%;opacity:.54}
+.flight-label{
+  position:absolute;
+  z-index:8;
+  padding:10px 14px;
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:999px;
+  background:rgba(11,8,6,.54);
+  backdrop-filter:blur(16px);
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.16em;
+  color:rgba(255,255,255,.8);
+  pointer-events:none;
+  opacity:0;
+}
+.label-wings{right:7vw;bottom:10vh}
+.label-african{right:26vw;top:13vh}
+.flight-scroll-note{
+  position:absolute;
+  z-index:8;
+  right:var(--pad);
+  bottom:26px;
+  font-size:9px;
+  letter-spacing:.18em;
+  color:rgba(255,255,255,.45);
+}
+
+@media (max-width:900px){
+  .hero-cutout-wings{width:55vw;right:-15vw;bottom:2vh;opacity:.8}
+  .hero-cutout-african{width:28vw;right:13vw;top:17vh;opacity:.48}
+  .flight-copy{width:min(470px,58vw)}
+  .flight-logo{left:68%;width:28vw}
+  .flight-orbits{left:68%;width:76vw}
+  .flight-wings{width:56vw;right:-18vw}
+  .flight-african{width:38vw;right:4vw}
+}
+
+@media (max-width:760px){
+  .hero-food-layer{opacity:.8}
+  .hero-cutout-wings{width:78vw;right:-34vw;bottom:8vh}
+  .hero-cutout-african{width:43vw;right:-9vw;top:16vh;opacity:.5}
+  .hero-seal{right:4vw;top:13vh;width:36vw}
+  .hero-copy{width:min(92vw,680px)}
+
+  .flavor-flight{height:245vh}
+  .flavor-flight-sticky{min-height:580px}
+  .flight-copy{
+    left:20px;
+    right:20px;
+    top:15vh;
+    transform:none;
+    width:auto;
+  }
+  .flight-copy h2{font-size:clamp(50px,15vw,80px)}
+  .flight-copy>p:last-child{max-width:310px;font-size:14px}
+  .flight-logo{left:50%;top:58%;width:43vw}
+  .flight-orbits{left:50%;top:60%;width:118vw}
+  .flight-wings{width:88vw;right:-42vw;bottom:-1vh}
+  .flight-african{width:62vw;right:39vw;top:45vh}
+  .label-wings{right:12px;bottom:12vh}
+  .label-african{left:14px;right:auto;top:auto;bottom:12vh}
+  .flight-scroll-note{display:none}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .hero-cutout,.flight-cutout,.flight-logo,.flight-orbits{transform:none!important}
+  .hero-cutout-wings{right:-10vw;bottom:0}
+  .hero-cutout-african{right:21vw;top:15vh}
+  .flight-logo{transform:translate(-50%,-50%)!important}
+  .flight-label{opacity:1}
+}
